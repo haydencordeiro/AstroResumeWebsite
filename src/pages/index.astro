@@ -1,123 +1,649 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+// import Card from '../components/Card.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<svg
-			class="astro-a"
-			width="495"
-			height="623"
-			viewBox="0 0 495 623"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
-			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
-				d="M167.19 364.254C83.4786 364.254 0 404.819 0 404.819C0 404.819 141.781 19.4876 142.087 18.7291C146.434 7.33701 153.027 0 162.289 0H332.441C341.703 0 348.574 7.33701 352.643 18.7291C352.92 19.5022 494.716 404.819 494.716 404.819C494.716 404.819 426.67 364.254 327.525 364.254L264.41 169.408C262.047 159.985 255.147 153.581 247.358 153.581C239.569 153.581 232.669 159.985 230.306 169.408L167.19 364.254ZM160.869 530.172C160.877 530.18 160.885 530.187 160.894 530.195L160.867 530.181C160.868 530.178 160.868 530.175 160.869 530.172ZM136.218 411.348C124.476 450.467 132.698 504.458 160.869 530.172C160.997 529.696 161.125 529.242 161.248 528.804C161.502 527.907 161.737 527.073 161.917 526.233C165.446 509.895 178.754 499.52 195.577 500.01C211.969 500.487 220.67 508.765 223.202 527.254C224.141 534.12 224.23 541.131 224.319 548.105C224.328 548.834 224.337 549.563 224.347 550.291C224.563 566.098 228.657 580.707 237.264 593.914C245.413 606.426 256.108 615.943 270.749 622.478C270.593 621.952 270.463 621.508 270.35 621.126C270.045 620.086 269.872 619.499 269.685 618.911C258.909 585.935 266.668 563.266 295.344 543.933C298.254 541.971 301.187 540.041 304.12 538.112C310.591 533.854 317.059 529.599 323.279 525.007C345.88 508.329 360.09 486.327 363.431 457.844C364.805 446.148 363.781 434.657 359.848 423.275C358.176 424.287 356.587 425.295 355.042 426.275C351.744 428.366 348.647 430.33 345.382 431.934C303.466 452.507 259.152 455.053 214.03 448.245C184.802 443.834 156.584 436.019 136.218 411.348Z"
-				fill="url(#paint0_linear_1805_24383)"></path>
-			<defs>
-				<linearGradient
-					id="paint0_linear_1805_24383"
-					x1="247.358"
-					y1="0"
-					x2="247.358"
-					y2="622.479"
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stop-opacity="0.9"></stop>
-					<stop offset="1" stop-opacity="0.2"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+	<body>
+		<div id="bg-container"></div>
+	
+	  <!-- ======= Header ======= -->
+	  <header id="header" class="">
+		<div class="container">
+	
+		  <h1><span>Hayden Cordeiro</span></h1>
+		  <!-- Uncomment below if you prefer to use an image logo -->
+		  <!-- <a target=" _blank" href="index.html" class="mr-auto"><img src="1.webp" alt="" class="img-fluid"></a> -->
+		  <h2>Full Stack Developer | Computer Engineer | <span>Enthusiastic,Persistent and Diligent</span></h2>
+	
+		  <nav id="navbar" class="navbar">
+			<ul>
+			  <li><a rel="noopener" class="nav-link active" href="#header" >Home</a></li>
+			  <li><a rel="noopener" class="nav-link" href="#about">About</a></li>
+			  <li><a rel="noopener" class="nav-link" href="#accomplishments">Accomplishments</a></li>
+			  <li><a rel="noopener" class="nav-link" href="#certifications">Certifications</a></li>
+			  <li><a rel="noopener" class="nav-link" href="#portfolio">Portfolio</a></li>
+			  <li><a rel="noopener" class="nav-link" href="#contact">Contact</a></li>
+			  <li><a rel="noopener" class="nav-link" href="/assets/HaydenCordeiro_Resume.pdf" download="HaydenCordeiro_Resume.pdf">Download
+				  My Resume</a></li>
+				  <div>
+					<input type="checkbox" class="checkbox" id="chk" onclick="ThemeChange()" />
+					<label class="label" for="chk">
+						<i class="fas fa-sun"></i>
+						<i class="fas fa-moon"></i>
+						<div class="ball"></div>
+					</label>
+				</div>
+			</ul>
+			<i class="bi bi-list mobile-nav-toggle"></i>
+		  </nav><!-- .navbar -->
+	
+		  <div class="social-links">
+			<a rel="noopener" href="https://www.linkedin.com/in/haydencordeiro/" class="linkedin" aria-label="Hayden's linkedin" ><i class="bi bi-linkedin"></i></a>
+			<a rel="noopener" href="tel:+1-226-961-9745" class="twitter" aria-label="Hayden's Phone"><i class="bi bi-telephone"></i></a>
+			<a rel="noopener" href="sms:+12269619745?body=Hi%20Hayden,%20it's%20[Your%20Name]%20here.%20We%20met%20the%20other%20day%20..."  class="twitter" aria-label="Hayden's Phone"><i class="bi bi-chat-left-text"></i></a>
+			<a rel="noopener" href="https://github.com/haydencordeiro" class="facebook" aria-label="Hayden's Facebook"><i class="bi bi-github"></i></a>
+			<a rel="noopener" href="https://instagram.com/haydencordeiro" class="instagram" aria-label="Hayden's Instagram"><i class="bi bi-instagram"></i></a>
+			<a rel="noopener" href="https://twitter.com/haydencordeiro" class="twitter" aria-label="Hayden's Twitter"><i class="bi bi-twitter"></i></a>
+		</div>
+	
+		</div>
+	  </header><!-- End Header -->
+	
+	  <!-- ======= About Section ======= -->
+	  <div id="spacer">&nbsp;</div>
+	
+	  <section id="about" class="about section-show">
+	
+		<!-- ======= About Me ======= -->
+		<div class="about-me container">
+	
+		  <div class="section-title">
+			<h2>About</h2>
+			<p>Learn more about me</p>
+		  </div>
+	
+		  <div class="row">
+			<div class="col-lg-4" data-aos="fade-right">
+			  <img src="https://ik.imagekit.io/haydencordeiro/me2.png" class="img-fluid" alt="Hayden Cordeiro">
+			</div>
+			<div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+			  <h3>Exuberant, Intuitive & Inquisitive</h3>
+			  <p class="fst-italic">
+				Passionate SDET at BrowserStack, excelling in full-stack web and app development. Proven track record in optimizing processes and collaborating on innovative solutions.
+			  </p>
+			  <div class="row">
+				<div class="col-lg-6">
+				  <ul>
+					<!-- <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li> -->
+					<li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><a target=" _blank" href="https://hayden.co.in/">hayden.co.in</a></span></li>
+					<!-- <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li> -->
+					<li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Ontario, Canada</span></li>
+				  </ul>
+				</div>
+				<div class="col-lg-6">
+				  <ul>
+					<!-- <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li> -->
+					<li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Pursuing my Master's</span>
+					</li>
+					<li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span><a rel="noopener" href="emailto:cordeirohayden@gmail.com" >cordeirohayden@gmail.com</a></span></li>
+					<!-- <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li> -->
+				  </ul>
+				</div>
+			  </div>
+			  <p>
+				Award-winning developer and tech enthusiast currently pursuing a Master's in Applied Computing. With a passion for innovation, I'm eager to contribute my expertise to collaborative projects. Let's connect and explore the boundless possibilities in the ever-evolving tech landscape! 🚀
+			  </p>
+			</div>
+		  </div>
+	
+		</div>
+	
+		<!-- ======= Interests ======= -->
+		<div class="interests container">
+	
+		  <div class="section-title">
+			<h2>Interests</h2>
+		  </div>
+	
+		  <div class="row">
+			<div class="col-lg-3 col-md-4">
+			  <div class="icon-box">
+				<i class="bi bi-laptop" style="color: #ffbb2c;"></i>
+				<h3>Web Development</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+			  <div class="icon-box">
+				<i class="bx bx-code-alt" style="color: #e361ff;"></i>
+				<h3>Frontend Development</h3>
+	
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+			  <div class="icon-box">
+				<i class="bx bx-data" style="color: #47aeff;"></i>
+				<h3>Backend Development</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+			  <div class="icon-box">
+				<i class="bx bx-server" style="color: #4233ff;"></i>
+				<h3>Web Hosting</h3>
+	
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4">
+			  <div class="icon-box">
+				<i class="bx bx-globe" style="color: #b2904f;"></i>
+				<h3>Domain & DNS</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4">
+			  <div class="icon-box">
+				<i class="bi bi-keyboard" style="color: #ffa76e;"></i>
+				<h3>Unity Game Dev</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4">
+			  <div class="icon-box">
+				<i class="bi bi-people-fill" style="color: #11dbcf;"></i>
+				<h3>Product Management</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4">
+			  <div class="icon-box">
+				<i class="bx bx-bug" style="color: #5578ff;"></i>
+				<h3>Debugging</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4">
+			  <div class="icon-box">
+				<i class="bx bx-code" style="color: #e80368;"></i>
+				<h3>Programming</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4">
+			  <div class="icon-box">
+				<i class="bi bi-phone" style="color: #b20969;"></i>
+				<h3>App Development</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4">
+			  <div class="icon-box">
+				<i class="bx bx-chalkboard" style="color: #ff5828;"></i>
+				<h3>Teaching & Training</h3>
+			  </div>
+			</div>
+			<div class="col-lg-3 col-md-4 mt-4">
+			  <div class="icon-box">
+				<i class="bx bx-search-alt-2" style="color: #29cc61;"></i>
+				<h3>Learn & Explore</h3>
+			  </div>
+			</div>
+		  </div>
+	
+		</div>
+	  </section>
+	
+	
+	  <!-- ======= Services Section ======= -->
+	  <section id="accomplishments" class="services section-show">
+		<div class="container">
+	
+		  <div class="section-title">
+			<h2>My Accomplishments</h2>
+			<p>Awards</p>
+		  </div>
+	
+		  <div class="row">
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-trophy" style="font-size: 2.2rem;"></i></div>
+				<h4>ACM Outstanding Website - 2023</h4>
+				<p><b>July 2023 </b><br>For Developing the best ACM student website for the year 2023.</p>
+			  </div>
+			</div>
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-trophy" style="font-size: 2.2rem;"></i></div>
+				<h4>Best UI - Game Design</h4>
+				<p><b>May 2021 | Teknack 2021</b><br>For Zesncape</p>
+			  </div>
+			</div>
+	
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-trophy"></i></div>
+				<h4>Coding Premier League 2021</h4>
+				<p>Secured the 2<sup>nd</sup> Prize in the Coding Competition.<br><b>April 2021</b></p>
+			  </div>
+			</div>
+	
+			</div>
+		  
+			<div class="row" style="margin-top: 1.5rem;">
+			  <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+				<div class="icon-box">
+				  <div class="icon"><i class="bx bx-trophy" style="font-size: 2.2rem;"></i></div>
+				  <h4>Best UI - Game Design</h4>
+				  <p><b>May 2020 | Teknack 2020</b><br>For Space Tycoon - A Space Genesis</p>
+				</div>
+			  </div>
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-trophy"></i></div>
+				<h4><span>First Place and Special Jury Award</span></h4>
+				<p>Secured the 1<sup>st</sup> Prize and Special Jury Award.<br><b>April 2019</b></p>
+			  </div>
+			</div>
+	
+	
+		  </div>
+		</div>
+		</section>
+	  <section id="certifications" class="services section-show">
+	
+		<div class="container">
+	
+		  <div class="section-title">
+			<h2>My Certifications</h2>
+			<p>Certifications</p>
+		  </div>
+	
+		  <div class="row">
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-book-content"></i></div>
+				<h4>Guide to Blockchain and Cryptocurrencies</h4>
+				<p>Udemy<br><b>April 2021</b></p>
+			  </div>
+			</div>
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-book-content"></i></div>
+				<h4>Introduction to Django for Web Development </h4>
+				<p>Coursera<br><b>April 2021</b></p>
+			  </div>
+			</div>        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-book-content"></i></div>
+				<h4>Python Functions, Files, and Dictionaries</h4>
+				<p>Coursera<br><b>May 2020</b></p>
+			  </div>
+			</div>
+		  </div>
+		  <div class="row" style="margin-top: 1.5rem;">
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-book-content"></i></div>
+				<h4> Programming for Everybody (Getting Started with Python)</h4>
+				<p>Coursera<br><b>May 2020</b></p>
+			  </div>
+			</div>
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-book-content"></i></div>
+				<h4> SQL for Data Science</h4>
+				<p>Coursera<br><b>May 2020</b></p>
+			  </div>
+			</div>
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-book-content"></i></div>
+				<h4>Basic Image Classification with TensorFlow</h4>
+				<p>Coursera<br><b>May 2020</b></p>
+			  </div>
+			</div>
+			</div>
+			<div class="row" style="margin-top: 1.5rem;">
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-book-content"></i></div>
+				<h4><span>Scrum Certified Fundamentals</span></h4>
+				<p>SCRUMStudy - Accreditation body for Scrum and Agile<br><b>April 2021</b></p>
+			  </div>
+			</div>
+			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+			  <div class="icon-box">
+				<div class="icon"><i class="bx bx-book-content"></i></div>
+				<h4><span>Scrum: The Basics</span></h4>
+				<p>Linkedin Learning<br><b>Sep 2023</b></p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </section><!-- End Services Section -->
+	
+	  <!-- ======= Portfolio Section ======= -->
+	  <section id="portfolio" class="portfolio section-show">
+		<div class="container">
+	
+		  <div class="section-title">
+			<h2>Portfolio</h2>
+			<p>My Works</p>
+		  </div>
+	
+		  <div class="row">
+			<div class="col-lg-12 d-flex justify-content-center">
+			  <ul id="portfolio-flters">
+				<li data-filter="*" class="filter-active">All</li>
+				<li data-filter=".filter-web">Website</li>
+				<li data-filter=".filter-app">App</li>
+				<li data-filter=".filter-others">Others</li>
+			  </ul>
+			</div>
+		  </div>
+	
+		  <div class="row portfolio-container">
+	
+	
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-web">
+			  <div class="portfolio-wrap">
+				<img
+				src="https://ik.imagekit.io/haydencordeiro/dbit.acm.org.png"
+				loading="lazy"
+				class="img-fluid" alt="ACM DBIT Website 2021">
+				<div class="portfolio-info">
+				  <h4>ACM DBIT Website 2021</h4>
+				  <p>Website</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/tr:w-600/dbit.acm.org.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="ACM DBIT Website 2021"><i class="bx bx-plus"></i></a>
+					<a target=" _blank" href="https://dbit.acm.org/"  title="ACM DBIT Website"><i class="bx bx-link"></i></a>
+				  
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/zetchat.png" loading="lazy" class="img-fluid" alt="JetChat - Realtime Android Chat App">
+				<div class="portfolio-info">
+				  <h4>JetChat - Realtime Android Chat App</h4>
+				  <p>App</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/zetchat.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="ACM DBIT Website 2021"><i class="bx bx-plus"></i></a>
+					<a target=" _blank" href="https://haydencordeiro.itch.io/jetchat"  title="JetChat - Realtime Android Chat App"><i class="bx bx-link"></i></a>
+				  
+				  </div>
+				</div>
+			  </div>
+			</div>
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/space-tycoon.png" loading="lazy" class="img-fluid" alt="Space Tycoon">
+				<div class="portfolio-info">
+				  <h4>Space Tycoon - Android Game</h4>
+				  <p>Android Game</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/space-tycoon.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Space Tycoon - Android Game"><i class="bx bx-plus"></i></a>
+		  
+					<a target=" _blank" href="https://play.google.com/store/apps/details?id=com.Teknack.SpaceTycoon" title="Space Tycoon Game"><i class="bx bx-link"></i></a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+	
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-web">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/placement-dbit.png" loading="lazy" class="img-fluid" alt="Placement Cell Website">
+				<div class="portfolio-info">
+				  <h4>DBIT Placement Cell Website 2021
+				  </h4>
+				  <p>Website</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/placement-dbit.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="DBIT Placement Cell Website 2021"><i class="bx bx-plus"></i></a>
+					<a target=" _blank" href="https://placement.dbit.in/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="DBIT Placement Cell Website 2021"><i class="bx bx-link"></i></a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/zenscape.png" loading="lazy" class="img-fluid" alt="Zenscape - Android Game">
+				<div class="portfolio-info">
+				  <h4>Zenscape - Android Game</h4>
+				  <p>Android Game</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/zenscape.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Zenscape - Android Game"><i class="bx bx-plus"></i></a>
+					<a target=" _blank" href="https://play.google.com/store/apps/details?id=com.Teknack.Zenscape"  title="Zenscape Android Game"><i class="bx bx-link"></i></a>
+				  
+				  </div>
+				</div>
+			  </div>
+			</div>
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-web">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/krishnaplasticsmumbai.png" loading="lazy" class="img-fluid" alt="Krishna Plastics">
+				<div class="portfolio-info">
+				  <h4>Krishna Plastics Website</h4>
+				  <p>Website</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/krishnaplasticsmumbai.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Krishna Plastics Website"><i class="bx bx-plus"></i></a>
+					<a target=" _blank" href="https://krishnaplasticsmumbai.com/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Krishna Plastics"><i class="bx bx-link"></i></a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+	
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-web">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/shantigharandheri.png" loading="lazy" class="img-fluid" alt="Shantighar Website">
+				<div class="portfolio-info">
+				  <h4>Shantighar Andheri Website</h4>
+				  <p>Website</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/shantigharandheri.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Shantighar Andheri Website"><i class="bx bx-plus"></i></a>
+					<a target=" _blank" href="https://shantigharandheri.com/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-app">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/ywca-app.png" loading="lazy" class="img-fluid" alt="YWCA APP">
+				<div class="portfolio-info">
+				  <h4>YWCA APP</h4>
+				  <p>APP</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/ywca-app.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Shantighar Andheri Website"><i class="bx bx-plus"></i></a>
+	
+					<a target=" _blank" href="https://play.google.com/store/apps/details?id=com.sevatech.ywca&hl=en&l=US"  title="YWCA Of Bombay App"><i class="bx bx-link"></i></a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+	
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-web">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/shelter-don-bosco.png" loading="lazy" class="img-fluid" alt="Shelter Don Bosco Website">
+				<div class="portfolio-info">
+				  <h4>Shelter Don Bosco Website</h4>
+				  <p>Website</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/shelter-don-bosco.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Shelter Don Bosco Website"><i class="bx bx-plus"></i></a>
+					<a target=" _blank" href="http://shelterdonbosco.org/" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+	
+			<div class="col-lg-4 col-md-6 portfolio-item filter-others">
+			  <div class="portfolio-wrap">
+				<img src="https://ik.imagekit.io/haydencordeiro/instainfo.png" loading="lazy" class="img-fluid" alt="InstaInfo Python Package">
+				<div class="portfolio-info">
+				  <h4>InstaInfo Python Package</h4>
+				  <p>Python Package</p>
+				  <div class="portfolio-links">
+					<a target=" _blank" href="https://ik.imagekit.io/haydencordeiro/instainfo.png" data-gallery="portfolioGallery" 
+					class="portfolio-lightbox" title="InstaInfo Python Package"><i class="bx bx-plus"></i></a>
+		
+					<a target=" _blank" href="https://pypi.org/project/instainfo/" 
+					title="InstaInfo Python Package"><i class="bx bx-link"></i></a>
+					
+				  </div>
+	
+				</div>
+			  </div>
+			</div>
+	
+	
+	
+	
+	
+		  </div>
+	
+		</div>
+	  </section><!-- End Portfolio Section -->
+	
+	  <!-- ======= Contact Section ======= -->
+	  <section id="contact" class="contact section-show">
+		<div class="container">
+	
+		  <div class="section-title">
+			<h2>Contact</h2>
+			<p>Contact Me</p>
+		  </div>
+	
+		  <div class="row mt-2">
+	
+			<div class="col-md-6 d-flex align-items-stretch">
+			  <div class="info-box">
+				<i class="bx bx-map"></i>
+				<h3>My Address</h3>
+				<p>Windsor, Ontario, Canada</p>
+			  </div>
+			</div>
+	
+			<div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+			  <div class="info-box">
+				<i class="bx bx-share-alt"></i>
+				<h3>Social Profiles</h3>
+				<div class="social-links">
+				  <!-- <a target=" _blank" href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+				  <a target=" _blank" href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+				  <a target=" _blank" href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+				  <a target=" _blank" href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+				  <a target=" _blank" href="#" class="linkedin"><i class="bi bi-linkedin"></i></a> -->
+				  <a rel="noopener" href="https://www.linkedin.com/in/haydencordeiro/" class="linkedin" aria-label="Hayden's linkedin" ><i class="bi bi-linkedin"></i></a>
+				  <a rel="noopener" href="https://github.com/haydencordeiro" class="facebook" aria-label="Hayden's Facebook"><i class="bi bi-github"></i></a>
+				  <a rel="noopener" href="https://instagram.com/haydencordeiro" class="instagram" aria-label="Hayden's Instagram"><i class="bi bi-instagram"></i></a>
+				  <a rel="noopener" href="https://twitter.com/haydencordeiro" class="twitter" aria-label="Hayden's Twitter"><i class="bi bi-twitter"></i></a>
+				</div>
+			  </div>
+			</div>
+	
+			<div class="col-md-6 mt-4 d-flex align-items-stretch">
+			  <div class="info-box">
+				<i class="bx bx-envelope"></i>
+				<h3>Email Me</h3>
+				<p><a target=" _blank" href="emailto:cordeirohayden@gmail.com"><span>cordeirohayden@gmail.com</span></a></p>
+			  </div>
+			</div>
+			<div class="col-md-6 mt-4 d-flex align-items-stretch">
+			  <div class="info-box">
+				<i class="bx bx-globe"></i>
+				<h3>My Website</h3>
+				<p><a target=" _blank" href="https://hayden.co.in/" >hayden.co.in</a></p>
+			  </div>
+			</div>
+		  </div>
+		  <!-- 
+		  <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+			<div class="row">
+			  <div class="col-md-6 form-group">
+				<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+			  </div>
+			  <div class="col-md-6 form-group mt-3 mt-md-0">
+				<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+			  </div>
+			</div>
+			<div class="form-group mt-3">
+			  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+			</div>
+			<div class="form-group mt-3">
+			  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+			</div>
+			<div class="my-3">
+			  <div class="loading">Loading</div>
+			  <div class="error-message"></div>
+			  <div class="sent-message">Your message has been sent. Thank you!</div>
+			</div>
+			<div class="text-center"><button type="submit">Send Message</button></div>
+		  </form> -->
+	
+		</div>
+	  </section>
+	
+	  <!-- Vendor JS Files -->
+	  <script is:inline>
+		var theme=localStorage.getItem("theme");
+		if(theme == null){
+			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			theme="dark"
+			}else{
+				theme="light"
+			}
+		}
+	
+	
+	
+		function UpdateTheme(){
+			if(theme=="dark"){
+				document.getElementById("bg-container").style.backgroundImage = "url('https://ik.imagekit.io/haydencordeiro/bg.jpg')";
+				document.documentElement.setAttribute('data-theme', 'dark');
+				document.getElementById("chk").checked=true;
+			}
+			else{
+				document.getElementById("bg-container").style.backgroundImage = "url('https://ik.imagekit.io/haydencordeiro/bg-light.jpg')";
+				document.documentElement.setAttribute('data-theme', '');
+				// document.getElementById("togglebutton").textContent="Dark Mode"
+				document.getElementById("chk").checked=false;
+	
+			}
+	
+	
+	
+		}
+		UpdateTheme()
+		function ThemeChange(){
+	
+			if(theme == "light"){
+			theme = "dark"           
+			localStorage.setItem("theme", "dark");
+			}
+			else{
+				theme = "light"
+			localStorage.setItem("theme", "light");
+			}
+			UpdateTheme()
+		}
+	</script>
+	 <script is:inline src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	  <script defer src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+	  <script defer src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	  <script defer src="/assets/vendor/purecounter/purecounter.js"></script>
+	  <script defer src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+	  <script defer src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+	
+	  <!-- Template Main JS File -->
+	  <script defer src="/assets/js/compressed_main.js"></script>
+	  <!-- Vendor CSS Files -->
+	  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+	  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+	  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+	  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	
+	</body>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
-</style>
+
