@@ -1,55 +1,59 @@
-	  <!-- ======= Services Section ======= -->
-	  <section id="accomplishments" class="services section-show">
-		<div class="container">
-	
-		  <div class="section-title">
-			<h2>My Accomplishments</h2>
-			<p>Awards</p>
-		  </div>
-	
-		  <div class="row">
-			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-			  <div class="icon-box">
-				<div class="icon"><i class="bx bx-trophy" style="font-size: 2.2rem;"></i></div>
-				<h4>ACM Outstanding Website - 2023</h4>
-				<p><b>July 2023 </b><br>For Developing the best ACM student website for the year 2023.</p>
-			  </div>
-			</div>
-			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-			  <div class="icon-box">
-				<div class="icon"><i class="bx bx-trophy" style="font-size: 2.2rem;"></i></div>
-				<h4>Best UI - Game Design</h4>
-				<p><b>May 2021 | Teknack 2021</b><br>For Zesncape</p>
-			  </div>
-			</div>
-	
-			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-			  <div class="icon-box">
-				<div class="icon"><i class="bx bx-trophy"></i></div>
-				<h4>Coding Premier League 2021</h4>
-				<p>Secured the 2<sup>nd</sup> Prize in the Coding Competition.<br><b>April 2021</b></p>
-			  </div>
-			</div>
-	
-			</div>
-		  
-			<div class="row" style="margin-top: 1.5rem;">
-			  <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-				<div class="icon-box">
-				  <div class="icon"><i class="bx bx-trophy" style="font-size: 2.2rem;"></i></div>
-				  <h4>Best UI - Game Design</h4>
-				  <p><b>May 2020 | Teknack 2020</b><br>For Space Tycoon - A Space Genesis</p>
-				</div>
-			  </div>
-			<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-			  <div class="icon-box">
-				<div class="icon"><i class="bx bx-trophy"></i></div>
-				<h4><span>First Place and Special Jury Award</span></h4>
-				<p>Secured the 1<sup>st</sup> Prize and Special Jury Award.<br><b>April 2019</b></p>
-			  </div>
-			</div>
-	
-	
-		  </div>
-		</div>
-		</section>
+---
+let awards = [
+    {
+        title: "ACM Outstanding Website - 2023",
+        description: "July 2023",
+        subDescription:
+            "For Developing the best ACM student website for the year 2023.",
+    },
+    {
+        title: "Best UI - Game Design",
+        description: "May 2021 | Teknack 2021",
+        subDescription: "For Zesncape",
+    },
+    {
+        title: "Coding Premier League 2021",
+        description: "April 2021",
+        subDescription: "Secured the 2nd Prize in the Coding Competition.",
+    },
+    {
+        title: "Best UI - Game Design",
+        description: "May 2020 | Teknack 2020",
+        subDescription: "For Space Tycoon - A Space Genesis",
+    },
+    {
+        title: "First Place and Special Jury Award",
+        description: "April 2019",
+        subDescription: "Secured the 1st Prize and Special Jury Award.",
+    },
+];
+---
+
+<!-- ======= Services Section ======= -->
+<section id="accomplishments" class="services section-show">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Accomplishments</h2>
+            <p>Awards</p>
+        </div>
+
+        <div class="row">
+
+            {awards.map((award) => 
+           
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-lg-4">
+                <div class="icon-box">
+                    <div class="icon">
+                        <i class="bx bx-trophy" style="font-size: 2.2rem;"></i>
+                    </div>
+                    <h4>{award.title}</h4>
+                    <p>
+                        <b>{award.description}</b><br />
+                        {award.subDescription}
+                    </p>
+                </div>
+            </div>
+            )}
+        </div>
+    </div>
+</section>
