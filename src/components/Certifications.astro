@@ -1,72 +1,60 @@
+---
+const certificates = [
+    {
+        title: "Programming for Everybody (Getting Started with Python)",
+        description: "Coursera",
+        subDescription: "May 2020",
+    },
+    {
+        title: "SQL for Data Science",
+        description: "Coursera",
+        subDescription: "May 2020",
+    },
+    {
+        title: "Basic Image Classification with TensorFlow",
+        description: "Coursera",
+        subDescription: "May 2020",
+    },
+    {
+        title: "Scrum Certified Fundamentals",
+        description: "SCRUMStudy - Accreditation body for Scrum and Agile",
+        subDescription: "April 2021",
+    },
+    {
+        title: "Scrum: The Basics",
+        description: "Linkedin Learning",
+        subDescription: "Sep 2023",
+    },
+];
+---
+
 <section id="certifications" class="services section-show">
-	
     <div class="container">
+        <div class="section-title">
+            <h2>My Certifications</h2>
+            <p>Certifications</p>
+        </div>
 
-      <div class="section-title">
-        <h2>My Certifications</h2>
-        <p>Certifications</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4>Guide to Blockchain and Cryptocurrencies</h4>
-            <p>Udemy<br><b>April 2021</b></p>
-          </div>
+        <div class="row">
+            {
+                certificates.map((cert) => (
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-lg-4">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="bx bx-book-content" />
+                            </div>
+                            <h4>{cert.title}</h4>
+                            <p>
+                                {cert.description}
+                                <>
+                                    <br />
+                                    <b>{cert.subDescription}</b>
+                                </>
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
         </div>
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4>Introduction to Django for Web Development </h4>
-            <p>Coursera<br><b>April 2021</b></p>
-          </div>
-        </div>        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4>Python Functions, Files, and Dictionaries</h4>
-            <p>Coursera<br><b>May 2020</b></p>
-          </div>
-        </div>
-      </div>
-      <div class="row" style="margin-top: 1.5rem;">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4> Programming for Everybody (Getting Started with Python)</h4>
-            <p>Coursera<br><b>May 2020</b></p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4> SQL for Data Science</h4>
-            <p>Coursera<br><b>May 2020</b></p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4>Basic Image Classification with TensorFlow</h4>
-            <p>Coursera<br><b>May 2020</b></p>
-          </div>
-        </div>
-        </div>
-        <div class="row" style="margin-top: 1.5rem;">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4><span>Scrum Certified Fundamentals</span></h4>
-            <p>SCRUMStudy - Accreditation body for Scrum and Agile<br><b>April 2021</b></p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-book-content"></i></div>
-            <h4><span>Scrum: The Basics</span></h4>
-            <p>Linkedin Learning<br><b>Sep 2023</b></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section><!-- End Services Section -->
+    </div><!-- End Services Section -->
+</section>
