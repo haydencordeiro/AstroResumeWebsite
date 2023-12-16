@@ -1,97 +1,112 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 // import Card from '../components/Card.astro';
-import Header from '../components/Header.astro'
-import About from '../components/About.astro'
-import Skills from '../components/Skills.astro'
-import Awards from '../components/Awards.astro'
-import Certifications from '../components/Certifications.astro';
-import Portfolio from '../components/Portfolio.astro'
-import Contact from '../components/Contact.astro';
+import Header from "../components/Header.astro";
+import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
+import Awards from "../components/Awards.astro";
+import Certifications from "../components/Certifications.astro";
+import Portfolio from "../components/Portfolio.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="Welcome to Astro.">
 	<body>
 		<div id="bg-container"></div>
-		<!-- <Header></Header> -->
-	
-	  <!-- ======= About Section ======= -->
-	  <div id="spacer">&nbsp;</div>
-	
-	  <section id="about" class="about section-show">
-	
-<!-- <About/>
-<Skills></Skills> -->
-	  </section>
-	
-	
-<!-- <Awards />
-<Certifications></Certifications> -->
-	
-<Portfolio></Portfolio>
-<!-- <Contact></Contact> -->
-	
-	  <!-- Vendor JS Files -->
-	  <script is:inline>
-		var theme=localStorage.getItem("theme");
-		if(theme == null){
-			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			theme="dark"
-			}else{
-				theme="light"
+		<Header />
+
+		<!-- ======= About Section ======= -->
+		<div id="spacer">&nbsp;</div>
+
+		<section id="about" class="about section-show">
+			<About />
+			<Skills />
+		</section>
+
+		<Awards />
+		<Certifications />
+
+		<Portfolio />
+		<Contact />
+
+		<!-- Vendor JS Files -->
+		<script is:inline>
+			var theme = localStorage.getItem("theme");
+			if (theme == null) {
+				if (
+					window.matchMedia &&
+					window.matchMedia("(prefers-color-scheme: dark)").matches
+				) {
+					theme = "dark";
+				} else {
+					theme = "light";
+				}
 			}
-		}
-	
-	
-	
-		function UpdateTheme(){
-			if(theme=="dark"){
-				document.getElementById("bg-container").style.backgroundImage = "url('https://ik.imagekit.io/haydencordeiro/bg.jpg')";
-				document.documentElement.setAttribute('data-theme', 'dark');
-				document.getElementById("chk").checked=true;
+
+			function UpdateTheme() {
+				if (theme == "dark") {
+					document.getElementById(
+						"bg-container",
+					).style.backgroundImage =
+						"url('https://ik.imagekit.io/haydencordeiro/bg.jpg')";
+					document.documentElement.setAttribute("data-theme", "dark");
+					document.getElementById("chk").checked = true;
+				} else {
+					document.getElementById(
+						"bg-container",
+					).style.backgroundImage =
+						"url('https://ik.imagekit.io/haydencordeiro/bg-light.jpg')";
+					document.documentElement.setAttribute("data-theme", "");
+					// document.getElementById("togglebutton").textContent="Dark Mode"
+					document.getElementById("chk").checked = false;
+				}
 			}
-			else{
-				document.getElementById("bg-container").style.backgroundImage = "url('https://ik.imagekit.io/haydencordeiro/bg-light.jpg')";
-				document.documentElement.setAttribute('data-theme', '');
-				// document.getElementById("togglebutton").textContent="Dark Mode"
-				document.getElementById("chk").checked=false;
-	
+			UpdateTheme();
+			function ThemeChange() {
+				if (theme == "light") {
+					theme = "dark";
+					localStorage.setItem("theme", "dark");
+				} else {
+					theme = "light";
+					localStorage.setItem("theme", "light");
+				}
+				UpdateTheme();
 			}
-	
-	
-	
-		}
-		UpdateTheme()
-		function ThemeChange(){
-	
-			if(theme == "light"){
-			theme = "dark"           
-			localStorage.setItem("theme", "dark");
-			}
-			else{
-				theme = "light"
-			localStorage.setItem("theme", "light");
-			}
-			UpdateTheme()
-		}
-	</script>
-	 <script is:inline src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	  <script defer src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
-	  <script defer src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-	  <script defer src="/assets/vendor/purecounter/purecounter.js"></script>
-	  <script defer src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
-	  <script defer src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
-	
-	  <!-- Template Main JS File -->
-	  <script defer src="/assets/js/main.js"></script>
-	  <!-- Vendor CSS Files -->
-	  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-	  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-	  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-	
+		</script>
+		<script
+			is:inline
+			src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script defer src="/assets/vendor/glightbox/js/glightbox.min.js"
+		></script>
+		<script defer src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"
+		></script>
+		<script defer src="/assets/vendor/purecounter/purecounter.js"></script>
+		<script defer src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+		<script defer src="/assets/vendor/waypoints/noframework.waypoints.js"
+		></script>
+
+		<!-- Template Main JS File -->
+		<script defer src="/assets/js/main.js"></script>
+		<!-- Vendor CSS Files -->
+		<link
+			href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="/assets/vendor/boxicons/css/boxicons.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="/assets/vendor/glightbox/css/glightbox.min.css"
+			rel="stylesheet"
+		/>
+		<link
+			href="/assets/vendor/swiper/swiper-bundle.min.css"
+			rel="stylesheet"
+		/>
 	</body>
 </Layout>
-
-

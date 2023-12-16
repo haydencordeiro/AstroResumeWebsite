@@ -5,53 +5,64 @@ let skillToColor = {
     "Django": "rgb(133, 76, 29)",
     "React": "rgb(105, 49, 76)",
     "React Native": "rgb(73, 47, 100)",
-    "Expo": "rgb(96, 59, 44)"
+    "Expo": "rgb(96, 59, 44)",
+    "Firebase" : "rgb(133, 76, 29)",
+    "Android" : "rgb(55, 55, 55)",
+    "HTML" : "rgb(137, 99, 42)",
+    "JS" : "rgb(43, 89, 63)",
+    "CSS" : "rgb(133, 76, 29)",
+    "Bootstrap" : "rgb(40, 69, 108)",
+    "Website" : "rgb(55, 55, 55)",
+    "AWS" : "rgb(96, 59, 44)",
+    "Unity" : "rgb(96, 59, 44)",
+    "C#" : "rgb(105, 49, 76)",
+    "Illustrator" : "rgb(90, 90, 90)",
+    "Photoshop" : "rgb(40, 69, 108)",
+    "IOS" : "rgb(137, 99, 42)",
+    "Flutter" : "rgb(43, 89, 63)",
+    "Python" : "rgb(40, 69, 108)"
 }
 
 let projects = [
     {
         title:"DBITLOR",
-        description: " A LOR process automation system",
+        description: "A LOR process automation system",
         skills: ["Django", "React", "React Native", "Expo"],
         imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
-        searchTerm: "filter-web filter-django filter-react filter-react_native filter-expo",
+        searchTerm: "web",
         youtubeURL:"https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740"
     },
     {
-        title:"DBITLOR2",
-        description: " A LOR process automation system",
-        skills: ["Django", "React", "React Native", "Expo"],
-        imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
+        title:"JetChat",
+        description: "Realtime Chat Application",
+        skills: ["Android", "React Native", "Firebase", "Expo"],
+        imgURL: "https://ik.imagekit.io/haydencordeiro/JetChat_E4Z1UHU9l.png?updatedAt=1702754118556",
         searchTerm: "app"
     },
     {
-        title:"DBITLOR3",
-        description: " A LOR process automation system",
-        skills: ["Django", "React", "React Native", "Expo"],
+        title:"Krishna Plastic Website",
+        description: "Developed the official website for krisna plastics",
+        skills: ["HTML", "JS", "CSS", "Bootstrap", "Website"],
         imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
         searchTerm: "web"
     },
     {
-        title:"DBITLOR4",
-        description: " A LOR process automation system",
-        skills: ["Django", "React", "React Native", "Expo"],
+        title:"FoodPaddlars",
+        description: "An Android based Food Deivery Application",
+        skills: ["Android", "Django", "AWS"],
         imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
         searchTerm: "app"
     }
 ]
 
-
 function createSearchTerm(skillList) {
     return skillList.map(skill => `filter-${skill.toLowerCase().replace(/ /g, "_")} `);;
 }
 
-// Update the searchTerm for each project
 projects.forEach(project => {
-    // Call createSearchTerm function and update the searchTerm
     project.searchTerm = "filter-" + project.searchTerm + " "  + createSearchTerm(project.skills).join(" ");
 });
 
-console.log(projects);
 
 ---
 
@@ -84,7 +95,7 @@ console.log(projects);
                     style=" border-top-left-radius: 5px; border-top-right-radius: 5px;"
                 >
                     <img
-                        src="https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740"
+                        src={project.imgURL}
                         loading="lazy"
                         class="img-fluid"
                         alt="ACM DBIT Website 2021"
