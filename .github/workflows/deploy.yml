@@ -17,6 +17,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      MY_ENV_VARIABLE: ${{ secrets.NOTION_API_TOKEN }}
+
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
