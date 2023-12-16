@@ -1,69 +1,107 @@
 ---
 import PortfolioSkillTag from "./PortfolioSkillTag.astro";
-
 let skillToColor = {
-    "Django": "rgb(133, 76, 29)",
-    "React": "rgb(105, 49, 76)",
-    "React Native": "rgb(73, 47, 100)",
-    "Expo": "rgb(96, 59, 44)",
-    "Firebase" : "rgb(133, 76, 29)",
-    "Android" : "rgb(55, 55, 55)",
-    "HTML" : "rgb(137, 99, 42)",
-    "JS" : "rgb(43, 89, 63)",
-    "CSS" : "rgb(133, 76, 29)",
-    "Bootstrap" : "rgb(40, 69, 108)",
-    "Website" : "rgb(55, 55, 55)",
-    "AWS" : "rgb(96, 59, 44)",
-    "Unity" : "rgb(96, 59, 44)",
-    "C#" : "rgb(105, 49, 76)",
-    "Illustrator" : "rgb(90, 90, 90)",
-    "Photoshop" : "rgb(40, 69, 108)",
-    "IOS" : "rgb(137, 99, 42)",
-    "Flutter" : "rgb(43, 89, 63)",
-    "Python" : "rgb(40, 69, 108)"
+"red" : "rgb(110, 54, 48)",
+"purple": "rgb(73, 47, 100)",
+"brown": "rgb(96, 59, 44)",
+"default" : "rgb(55, 55, 55)",
+"yellow" : "rgb(137, 99, 42)",
+"green" : "rgb(43, 89, 63)",
+"orange" : "rgb(133, 76, 29)",
+"blue" : "rgb(40, 69, 108)",
+"pink" : "rgb(105, 49, 76)",
+"gray" : "rgb(90, 90, 90)",
+
 }
 
-let projects = [
-    {
-        title:"DBITLOR",
-        description: "A LOR process automation system",
-        skills: ["Django", "React", "React Native", "Expo"],
-        imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
-        searchTerm: "web",
-        youtubeURL:"https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740"
-    },
-    {
-        title:"JetChat",
-        description: "Realtime Chat Application",
-        skills: ["Android", "React Native", "Firebase", "Expo"],
-        imgURL: "https://ik.imagekit.io/haydencordeiro/JetChat_E4Z1UHU9l.png?updatedAt=1702754118556",
-        searchTerm: "app"
-    },
-    {
-        title:"Krishna Plastic Website",
-        description: "Developed the official website for krisna plastics",
-        skills: ["HTML", "JS", "CSS", "Bootstrap", "Website"],
-        imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
-        searchTerm: "web"
-    },
-    {
-        title:"FoodPaddlars",
-        description: "An Android based Food Deivery Application",
-        skills: ["Android", "Django", "AWS"],
-        imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
-        searchTerm: "app"
-    }
+
+async function  getPageIds(){
+const response = await fetch("https://api.notion.com/v1/databases/3db8fe9ff1ab4b5ba2b427059834759b/query", {
+      body: "{}",
+      headers: {
+        Authorization: "Bearer "+import.meta.env.NOTION_API_TOKEN,
+        "Content-Type": "application/json",
+        "Notion-Version": "2022-02-22"
+      },
+      method: "POST"
+    });
+
+const data = await response.json();
+return (data.results.map((r) => r.id))
+// return results
+}
+
+
+
+async function getPageData(pageID){
+var myHeaders = new Headers();
+myHeaders.append("Notion-Version", "2022-02-22");
+myHeaders.append("Authorization", "Bearer "+ import.meta.env.NOTION_API_TOKEN);
+myHeaders.append("Cookie", "__cf_bm=WOKP4K9Z2mcTJP4t.rOvEU2RCoecmWDxu_mOFMj7PeY-1702757076-1-AWhJI19kMpOkGvqYCq3q4FHTPseRH5nz5RXOfGC1a61W9goA9CXgRaB1zQ+gPRlYkTULyrTnT2E1KgUiEVVQAzU=");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+const response = await fetch("https://api.notion.com/v1/pages/"+pageID , requestOptions)
+const data = await response.json();
+// console.log(data)
+const returnData = {
+    emoji:data.icon.emoji,
+    title:data.properties.Name.title[0].text.content ,
+    description: data.properties['Short Description'].rich_text[0] ?  data.properties['Short Description'].rich_text[0].text.content : "",
+    skills: data.properties.Tags.multi_select,
+    imgURL: data.cover.file ? data.cover.file.url : "https://ik.imagekit.io/haydencordeiro/JetChat_E4Z1UHU9l.png?updatedAt=1702754118556",
+    searchTerm: data.properties.type.rich_text[0] ? data.properties.type.rich_text[0].plain_text : "web",
+    youtubeURL: data.properties.Demo.url
+}
+console.log(returnData.skills)
+return returnData
+}
+
+
+// let pageIds = await getPageIds()
+let pageIDS = [
+  '0943ae32-6876-42ff-ac86-3fc66956b70e',
+  '099e79f9-d44b-40aa-858c-779b3d7ede1b',
+  '89af3aa8-738c-4191-8831-2ba7ebc3519a',
+  '2dc00417-3e9f-48d0-864c-20a8f1914563',
+  'f4004266-6cdf-42ec-8f68-3bbec753005a',
+  'b092e28e-5083-46d1-9c0f-2d8b2d4f5313',
+  'c2a88e9b-b69e-4373-bc5a-b019d8aea5c6',
+  'f4f2b9b1-e9de-4372-a72b-7afe3fda9be3',
+  '351ad52c-e77e-4762-a4da-00f1bc39ff25',
+  '3f2b1570-c966-4b8d-a6f1-366da54b802e',
+  '43215772-348e-4dd1-93a0-aa6d9956a349',
+  '77836357-6c20-4d48-b114-78a52474f944',
+  '7a571025-0714-494d-a47d-1d9b9a34cced',
+  '8fccf016-ffdc-4c8a-b5b7-b8d3cbf7d72f',
+  'a4d419a6-f81c-4571-a3c6-ee5a3d9bf6cd',
+  'f24a3704-6550-43db-9004-4d90b8042dbe',
+  'fa1c0561-b30a-4f22-8ecd-16dae9c52575',
+  'fc9d9612-e2ba-48ae-b7a3-2a1e60bbaf1b',
+  '000e21c9-75b7-42d9-8b4b-1a37c7f80a62',
+  '1e902dd5-520b-40aa-951d-42064cbe8b22',
+  '4ffac658-61e8-4718-8782-9031e0487258',
+  'cb0bdcb0-f54a-4003-aefe-cd79767cb92b',
+  '1267181d-e526-4e2c-a929-fd70f768c4f3',
+  '59fe863c-2e62-486b-8cad-3a80f8e0d3e7'
 ]
 
+const projects =  await Promise.all(pageIDS.map((pid) => getPageData(pid)))
+
+
 function createSearchTerm(skillList) {
-    return skillList.map(skill => `filter-${skill.toLowerCase().replace(/ /g, "_")} `);;
+    return skillList.map(skill => `filter-${skill.name.toLowerCase().replace(/ /g, "_")} `);;
 }
 
 projects.forEach(project => {
     project.searchTerm = "filter-" + project.searchTerm + " "  + createSearchTerm(project.skills).join(" ");
 });
 
-
+console.log(projects)
 ---
 
 <!-- ======= Portfolio Section ======= -->
@@ -170,10 +208,10 @@ projects.forEach(project => {
                                 </div>
                             </div><div
                             id="portfolio-skills"
-                                style="display: flex; min-width: 0px; flex-shrink: 0; flex-wrap: nowrap; gap: 6px 8px;"
+                                style="overflow:hidden; display: flex; min-width: 0px; flex-shrink: 0; flex-wrap: nowrap; gap: 6px 8px;"
                             >
                         {project.skills.map(skill => 
-                            <PortfolioSkillTag skill={skill} backgroundColor={skillToColor[skill]}/>
+                            <PortfolioSkillTag skill={skill} backgroundColor={skillToColor[skill.color]}/>
                             )}
 
    
