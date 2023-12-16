@@ -2,6 +2,5 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://haydencordeiro.github.io',
-    base: '/AstroResumeWebsite',
+    site: 'https://newresume.hayden.co.in/',
 });
