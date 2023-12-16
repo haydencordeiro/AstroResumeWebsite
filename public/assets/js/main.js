@@ -271,6 +271,19 @@ function test2(){
           filter: this.getAttribute('data-filter')
         });
       }, true);
+
+
+      on('click', '#portfolio-skills div', function(e) {
+        e.preventDefault();
+        portfolioFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        portfolioIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+      }, true);
     }
 
   });

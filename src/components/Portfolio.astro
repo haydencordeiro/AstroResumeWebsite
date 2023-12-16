@@ -1,3 +1,60 @@
+---
+import PortfolioSkillTag from "./PortfolioSkillTag.astro";
+
+let skillToColor = {
+    "Django": "rgb(133, 76, 29)",
+    "React": "rgb(105, 49, 76)",
+    "React Native": "rgb(73, 47, 100)",
+    "Expo": "rgb(96, 59, 44)"
+}
+
+let projects = [
+    {
+        title:"DBITLOR",
+        description: " A LOR process automation system",
+        skills: ["Django", "React", "React Native", "Expo"],
+        imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
+        searchTerm: "filter-web filter-django filter-react filter-react_native filter-expo",
+        youtubeURL:"https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740"
+    },
+    {
+        title:"DBITLOR2",
+        description: " A LOR process automation system",
+        skills: ["Django", "React", "React Native", "Expo"],
+        imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
+        searchTerm: "app"
+    },
+    {
+        title:"DBITLOR3",
+        description: " A LOR process automation system",
+        skills: ["Django", "React", "React Native", "Expo"],
+        imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
+        searchTerm: "web"
+    },
+    {
+        title:"DBITLOR4",
+        description: " A LOR process automation system",
+        skills: ["Django", "React", "React Native", "Expo"],
+        imgURL: "https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740",
+        searchTerm: "app"
+    }
+]
+
+
+function createSearchTerm(skillList) {
+    return skillList.map(skill => `filter-${skill.toLowerCase().replace(/ /g, "_")} `);;
+}
+
+// Update the searchTerm for each project
+projects.forEach(project => {
+    // Call createSearchTerm function and update the searchTerm
+    project.searchTerm = "filter-" + project.searchTerm + " "  + createSearchTerm(project.skills).join(" ");
+});
+
+console.log(projects);
+
+---
+
 <!-- ======= Portfolio Section ======= -->
 <section id="portfolio" class="portfolio section-show">
     <div class="container">
@@ -18,8 +75,14 @@
         </div>
 
         <div class="row portfolio-container">
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap" style=" border-top-left-radius: 5px; border-top-right-radius: 5px;">
+            {
+                projects.map((project) =>
+            
+            <div class=`col-lg-4 col-md-6 portfolio-item filter-web ${project.searchTerm}` >
+                <div
+                    class="portfolio-wrap"
+                    style=" border-top-left-radius: 5px; border-top-right-radius: 5px;"
+                >
                     <img
                         src="https://ik.imagekit.io/haydencordeiro/DBIT%20LOR__Er7SC0QU?updatedAt=1702743360740"
                         loading="lazy"
@@ -27,17 +90,19 @@
                         alt="ACM DBIT Website 2021"
                     />
                     <div class="portfolio-info">
-                        <h4>ACM DBIT Website 2021</h4>
+                        <h4>DBITLOR</h4>
                         <p>Website</p>
                         <div class="portfolio-links">
-                            <a
+                            {project.youtubeURL &&
+                            
+                                <a
                                 target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/tr:w-600/dbit.acm.org.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
+                                href= {project.youtubeURL}
                                 title="ACM DBIT Website 2021"
-                                ><i class="bx bx-plus"></i></a
+                                ><i class="bi bi-youtube"></i></a
                             >
+                            }
+
                             <a
                                 target=" _blank"
                                 href="https://dbit.acm.org/"
@@ -46,24 +111,20 @@
                             >
                         </div>
                     </div>
-                    <!-- <div style="height: 6.18rem; background-color:red">
-                  <h1 style="font-size: 16px; line-height: 1.5; min-height: 24px; font-weight: 500; pointer-events: none;">DBITLOR</h1>
-                  <div style="line-height: 1.5; white-space: nowrap; word-break: normal; overflow: hidden;"><span> A LOR process automation system</span></div>
-                  <li style="display:flex; list-style: none; ">
-                    <ul style="">Django</ul>
-                    <ul style="">Django</ul>
-                  </li>
-                </div> -->
-                    <div
+
+                </div>
+                <div
                         spellcheck="true"
                         placeholder="Untitled"
                         data-content-editable-leaf="true"
                         contenteditable="false"
                         style="background-color:#262626;padding-left:11px;max-width: 100%; width: auto; padding-top: 0.5rem; word-break: break-word; caret-color: rgba(255, 255, 255, 0.81); font-size: 16px; line-height: 1.5; min-height: 24px; font-weight: 500; pointer-events: none;"
                     >
-                        DBITLOR
+                        {project.title}
                     </div>
-                    <div style="padding-top: 0px; padding-bottom: 10px;background-color:#262626; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;">
+                    <div
+                        style="padding-top: 0px; padding-bottom: 10px;background-color:#262626; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;"
+                    >
                         <div
                             role="button"
                             tabindex="0"
@@ -80,9 +141,10 @@
                             </div><div
                                 style="line-height: 1.5; white-space: nowrap; word-break: normal; overflow: hidden;"
                             >
-                                <span> A LOR process automation system</span>
+                                <span> {project.description}</span>
                             </div>
-                        </div><div
+                        </div>
+                        <div
                             role="button"
                             tabindex="0"
                             data-testid="property-value"
@@ -96,351 +158,22 @@
                                 >
                                 </div>
                             </div><div
+                            id="portfolio-skills"
                                 style="display: flex; min-width: 0px; flex-shrink: 0; flex-wrap: nowrap; gap: 6px 8px;"
                             >
-                                <div
-                                    style="display: flex; align-items: center; flex-shrink: 0; min-width: 0px; max-width: 100%; height: 20px; border-radius: 3px; padding-left: 6px; padding-right: 6px; font-size: 14px; line-height: 120%; color: rgba(255, 255, 255, 0.804); background: rgb(133, 76, 29); margin: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
-                                >
-                                    <div
-                                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-flex; align-items: center; height: 20px; line-height: 20px;"
-                                    >
-                                        <span
-                                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
-                                            >Django</span
-                                        >
-                                    </div>
-                                </div><div
-                                    style="display: flex; align-items: center; flex-shrink: 0; min-width: 0px; max-width: 100%; height: 20px; border-radius: 3px; padding-left: 6px; padding-right: 6px; font-size: 14px; line-height: 120%; color: rgba(255, 255, 255, 0.804); background: rgb(105, 49, 76); margin: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
-                                >
-                                    <div
-                                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-flex; align-items: center; height: 20px; line-height: 20px;"
-                                    >
-                                        <span
-                                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
-                                            >React</span
-                                        >
-                                    </div>
-                                </div><div
-                                    style="display: flex; align-items: center; flex-shrink: 0; min-width: 0px; max-width: 100%; height: 20px; border-radius: 3px; padding-left: 6px; padding-right: 6px; font-size: 14px; line-height: 120%; color: rgba(255, 255, 255, 0.804); background: rgb(73, 47, 100); margin: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
-                                >
-                                    <div
-                                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-flex; align-items: center; height: 20px; line-height: 20px;"
-                                    >
-                                        <span
-                                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
-                                            >React Native</span
-                                        >
-                                    </div>
-                                </div><div
-                                    style="display: flex; align-items: center; flex-shrink: 0; min-width: 0px; max-width: 100%; height: 20px; border-radius: 3px; padding-left: 6px; padding-right: 6px; font-size: 14px; line-height: 120%; color: rgba(255, 255, 255, 0.804); background: rgb(96, 59, 44); margin: 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
-                                >
-                                    <div
-                                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-flex; align-items: center; height: 20px; line-height: 20px;"
-                                    >
-                                        <span
-                                            style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
-                                            >Expo</span
-                                        >
-                                    </div>
-                                </div>
+                        {project.skills.map(skill => 
+                            <PortfolioSkillTag skill={skill} backgroundColor={skillToColor[skill]}/>
+                            )}
+
+   
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/zetchat.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="JetChat - Realtime Android Chat App"
-                    />
-                    <div class="portfolio-info">
-                        <h4>JetChat - Realtime Android Chat App</h4>
-                        <p>App</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/zetchat.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="ACM DBIT Website 2021"
-                                ><i class="bx bx-plus"></i></a
-                            >
-                            <a
-                                target=" _blank"
-                                href="https://haydencordeiro.itch.io/jetchat"
-                                title="JetChat - Realtime Android Chat App"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>)
+        }
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/space-tycoon.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="Space Tycoon"
-                    />
-                    <div class="portfolio-info">
-                        <h4>Space Tycoon - Android Game</h4>
-                        <p>Android Game</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/space-tycoon.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="Space Tycoon - Android Game"
-                                ><i class="bx bx-plus"></i></a
-                            >
 
-                            <a
-                                target=" _blank"
-                                href="https://play.google.com/store/apps/details?id=com.Teknack.SpaceTycoon"
-                                title="Space Tycoon Game"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/placement-dbit.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="Placement Cell Website"
-                    />
-                    <div class="portfolio-info">
-                        <h4>DBIT Placement Cell Website 2021</h4>
-                        <p>Website</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/placement-dbit.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="DBIT Placement Cell Website 2021"
-                                ><i class="bx bx-plus"></i></a
-                            >
-                            <a
-                                target=" _blank"
-                                href="https://placement.dbit.in/"
-                                data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external"
-                                class="portfolio-details-lightbox"
-                                title="DBIT Placement Cell Website 2021"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/zenscape.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="Zenscape - Android Game"
-                    />
-                    <div class="portfolio-info">
-                        <h4>Zenscape - Android Game</h4>
-                        <p>Android Game</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/zenscape.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="Zenscape - Android Game"
-                                ><i class="bx bx-plus"></i></a
-                            >
-                            <a
-                                target=" _blank"
-                                href="https://play.google.com/store/apps/details?id=com.Teknack.Zenscape"
-                                title="Zenscape Android Game"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/krishnaplasticsmumbai.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="Krishna Plastics"
-                    />
-                    <div class="portfolio-info">
-                        <h4>Krishna Plastics Website</h4>
-                        <p>Website</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/krishnaplasticsmumbai.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="Krishna Plastics Website"
-                                ><i class="bx bx-plus"></i></a
-                            >
-                            <a
-                                target=" _blank"
-                                href="https://krishnaplasticsmumbai.com/"
-                                data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external"
-                                class="portfolio-details-lightbox"
-                                title="Krishna Plastics"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/shantigharandheri.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="Shantighar Website"
-                    />
-                    <div class="portfolio-info">
-                        <h4>Shantighar Andheri Website</h4>
-                        <p>Website</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/shantigharandheri.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="Shantighar Andheri Website"
-                                ><i class="bx bx-plus"></i></a
-                            >
-                            <a
-                                target=" _blank"
-                                href="https://shantigharandheri.com/"
-                                data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external"
-                                class="portfolio-details-lightbox"
-                                title="Portfolio Details"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/ywca-app.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="YWCA APP"
-                    />
-                    <div class="portfolio-info">
-                        <h4>YWCA APP</h4>
-                        <p>APP</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/ywca-app.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="Shantighar Andheri Website"
-                                ><i class="bx bx-plus"></i></a
-                            >
-
-                            <a
-                                target=" _blank"
-                                href="https://play.google.com/store/apps/details?id=com.sevatech.ywca&hl=en&l=US"
-                                title="YWCA Of Bombay App"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/shelter-don-bosco.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="Shelter Don Bosco Website"
-                    />
-                    <div class="portfolio-info">
-                        <h4>Shelter Don Bosco Website</h4>
-                        <p>Website</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/shelter-don-bosco.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="Shelter Don Bosco Website"
-                                ><i class="bx bx-plus"></i></a
-                            >
-                            <a
-                                target=" _blank"
-                                href="http://shelterdonbosco.org/"
-                                data-gallery="portfolioDetailsGallery"
-                                data-glightbox="type: external"
-                                class="portfolio-details-lightbox"
-                                title="Portfolio Details"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 portfolio-item filter-others">
-                <div class="portfolio-wrap">
-                    <img
-                        src="https://ik.imagekit.io/haydencordeiro/instainfo.png"
-                        loading="lazy"
-                        class="img-fluid"
-                        alt="InstaInfo Python Package"
-                    />
-                    <div class="portfolio-info">
-                        <h4>InstaInfo Python Package</h4>
-                        <p>Python Package</p>
-                        <div class="portfolio-links">
-                            <a
-                                target=" _blank"
-                                href="https://ik.imagekit.io/haydencordeiro/instainfo.png"
-                                data-gallery="portfolioGallery"
-                                class="portfolio-lightbox"
-                                title="InstaInfo Python Package"
-                                ><i class="bx bx-plus"></i></a
-                            >
-
-                            <a
-                                target=" _blank"
-                                href="https://pypi.org/project/instainfo/"
-                                title="InstaInfo Python Package"
-                                ><i class="bx bx-link"></i></a
-                            >
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section><!-- End Portfolio Section -->
