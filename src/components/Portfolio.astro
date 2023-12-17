@@ -72,7 +72,7 @@ function createSearchTerm(skillList) {
 }
 
 projects.forEach(project => {
-    project.searchTerm = "filter-" + project.searchTerm + " "  + createSearchTerm(project.skills).join(" ");
+    project.searchTerm = "filter-" + project.searchTerm.toLowerCase(    ) + " "  + createSearchTerm(project.skills).join(" ");
 });
 
 console.log(projects.map(p=>p.title))
@@ -92,6 +92,7 @@ console.log(projects.map(p=>p.title))
                     <li data-filter="*" class="filter-active">All</li>
                     <li data-filter=".filter-web">Website</li>
                     <li data-filter=".filter-app">App</li>
+                    <li data-filter=".filter-ai">AI</li>
                     <li data-filter=".filter-others">Others</li>
                 </ul>
             </div>
@@ -101,7 +102,7 @@ console.log(projects.map(p=>p.title))
             {
                 projects.map((project) =>
             
-            <div class=`col-lg-4 col-md-6 portfolio-item filter-web ${project.searchTerm}` >
+            <div class=`col-lg-4 col-md-6 portfolio-item ${project.searchTerm}` >
                 <div
                     class="portfolio-wrap"
                     style=" border-top-left-radius: 5px; border-top-right-radius: 5px;"
