@@ -55,43 +55,17 @@ const returnData = {
     skills: data.properties.Tags.multi_select,
     imgURL: data.cover.file ? data.cover.file.url : "https://ik.imagekit.io/haydencordeiro/JetChat_E4Z1UHU9l.png?updatedAt=1702754118556",
     searchTerm: data.properties.type.rich_text[0] ? data.properties.type.rich_text[0].plain_text : "web",
-    youtubeURL: data.properties.Demo.url
+    youtubeURL: data.properties.Demo.url,
+    projectLink: data.properties.Demo.projectLink
 }
-console.log(returnData.skills)
 return returnData
 }
 
 
-// let pageIds = await getPageIds()
-let pageIDS = [
-  '0943ae32-6876-42ff-ac86-3fc66956b70e',
-  '099e79f9-d44b-40aa-858c-779b3d7ede1b',
-  '89af3aa8-738c-4191-8831-2ba7ebc3519a',
-  '2dc00417-3e9f-48d0-864c-20a8f1914563',
-  'f4004266-6cdf-42ec-8f68-3bbec753005a',
-  'b092e28e-5083-46d1-9c0f-2d8b2d4f5313',
-  'c2a88e9b-b69e-4373-bc5a-b019d8aea5c6',
-  'f4f2b9b1-e9de-4372-a72b-7afe3fda9be3',
-  '351ad52c-e77e-4762-a4da-00f1bc39ff25',
-  '3f2b1570-c966-4b8d-a6f1-366da54b802e',
-  '43215772-348e-4dd1-93a0-aa6d9956a349',
-  '77836357-6c20-4d48-b114-78a52474f944',
-  '7a571025-0714-494d-a47d-1d9b9a34cced',
-  '8fccf016-ffdc-4c8a-b5b7-b8d3cbf7d72f',
-  'a4d419a6-f81c-4571-a3c6-ee5a3d9bf6cd',
-  'f24a3704-6550-43db-9004-4d90b8042dbe',
-  'fa1c0561-b30a-4f22-8ecd-16dae9c52575',
-  'fc9d9612-e2ba-48ae-b7a3-2a1e60bbaf1b',
-  '000e21c9-75b7-42d9-8b4b-1a37c7f80a62',
-  '1e902dd5-520b-40aa-951d-42064cbe8b22',
-  '4ffac658-61e8-4718-8782-9031e0487258',
-  'cb0bdcb0-f54a-4003-aefe-cd79767cb92b',
-  '1267181d-e526-4e2c-a929-fd70f768c4f3',
-  '59fe863c-2e62-486b-8cad-3a80f8e0d3e7'
-]
-
+let pageIds = (await getPageIds()).reverse()
+var pageIDS = Array.from(new Set(pageIds));
+console.log((pageIDS))
 const projects =  await Promise.all(pageIDS.map((pid) => getPageData(pid)))
-
 
 function createSearchTerm(skillList) {
     return skillList.map(skill => `filter-${skill.name.toLowerCase().replace(/ /g, "_")} `);;
@@ -101,7 +75,7 @@ projects.forEach(project => {
     project.searchTerm = "filter-" + project.searchTerm + " "  + createSearchTerm(project.skills).join(" ");
 });
 
-console.log(projects)
+console.log(projects.map(p=>p.title))
 ---
 
 <!-- ======= Portfolio Section ======= -->
@@ -137,10 +111,10 @@ console.log(projects)
                         loading="lazy"
                         class="img-fluid"
                         alt="ACM DBIT Website 2021"
+                        style="height: 214px; min-width: 100%; object-fit: cover;"
                     />
                     <div class="portfolio-info">
-                        <h4>DBITLOR</h4>
-                        <p>Website</p>
+                        <h4>{project.title}</h4>
                         <div class="portfolio-links">
                             {project.youtubeURL &&
                             
@@ -151,13 +125,14 @@ console.log(projects)
                                 ><i class="bi bi-youtube"></i></a
                             >
                             }
-
+                            {project.projectLink &&
                             <a
                                 target=" _blank"
                                 href="https://dbit.acm.org/"
                                 title="ACM DBIT Website"
                                 ><i class="bx bx-link"></i></a
                             >
+                            }
                         </div>
                     </div>
 
