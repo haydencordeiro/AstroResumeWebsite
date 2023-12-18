@@ -1314,3 +1314,6 @@
     color: var(--three);;
   }
   
+  .skillchip:hover{
+    filter: brightness(150%);
+  }
