@@ -27,7 +27,7 @@
 }
 
 .label {
-  margin-left: 3.9rem;
+  margin-left: 2.2rem;
 background-color:  var(--toggle-btn-bg);
 border-radius: 50px;
 cursor: pointer;
@@ -376,19 +376,21 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+  
 .navbar-mobile {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background: var(--two);;
-  transition: 0.3s;
-  z-index: 999;
-  margin-top: 0;
+  /* width: 100vw;
+  height: 100vh; */
+position: fixed !important;
+/* overflow: hidden; */
+top: 0;
+right: 0;
+left: 0;
+bottom: 0;
+background: var(--two);;
+transition: 0.3s;
+z-index: 999;
+margin-top: 0;
 }
-
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
   top: 15px;
