@@ -8,8 +8,6 @@
   --social-links-bg:#dfdfdf;
   --portfolio-hover-text:#f2f2f2;
   --portfolio-cards-info-bg-color: #f2f2f2;
-
-
   --toggle-btn-bg:#425372 ;
 
 }
@@ -25,7 +23,6 @@
   --portfolio-hover-text:#ffff;
   --portfolio-cards-info-bg-color: #262626;
   --toggle-btn-bg:rgba(255, 255, 255, 0.2);
-
 
 }
 
@@ -91,7 +88,7 @@ color: #f39c12!important;
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
-  color: var(--three);;
+  color: var(--three) !important;
   position: relative;
   background: transparent;
 }
