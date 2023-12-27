@@ -7,6 +7,7 @@
   --hover:#3574e8;
   --social-links-bg:#dfdfdf;
   --portfolio-hover-text:#f2f2f2;
+  --portfolio-cards-info-bg-color: #f2f2f2;
 
 
   --toggle-btn-bg:#425372 ;
@@ -22,7 +23,7 @@
   --hover:#3574e8;
   --social-links-bg:rgba(255,255,255,.1);
   --portfolio-hover-text:#ffff;
-
+  --portfolio-cards-info-bg-color: #262626;
   --toggle-btn-bg:rgba(255, 255, 255, 0.2);
 
 
@@ -1309,4 +1310,9 @@ section .container {
 
 .skillchip:hover{
   filter: brightness(150%);
+}
+
+.portfolio-item-bg{
+  background-color: var(--portfolio-cards-info-bg-color);
+  color: var(--three);
 }
