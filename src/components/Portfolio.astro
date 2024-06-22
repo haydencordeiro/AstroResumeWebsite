@@ -108,7 +108,7 @@ projects.forEach(project => {
                         src={project.imgURL}
                         loading="lazy"
                         class="img-fluid"
-                        alt="ACM DBIT Website 2021"
+                        alt={project.title}
                         style="height: 214px; min-width: 100%; object-fit: cover;"
                     />
                     <div class="portfolio-info">
@@ -119,7 +119,7 @@ projects.forEach(project => {
                                 <a
                                 target=" _blank"
                                 href= {project.youtubeURL}
-                                title="ACM DBIT Website 2021"
+                                title={project.title}
                                 ><i class="bi bi-youtube"></i></a
                             >
                             }
@@ -127,7 +127,7 @@ projects.forEach(project => {
                             <a
                                 target=" _blank"
                                 href={project.projectLink}
-                                title="ACM DBIT Website"
+                                title={project.title}
                                 ><i class="bx bx-link"></i></a
                             >
                             }
