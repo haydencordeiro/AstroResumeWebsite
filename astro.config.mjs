@@ -57,7 +57,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       changefreq: 'weekly',
-      priority: 1,
+      priority: 0.7,
       lastmod: new Date('2024-06-22'),
       customPages: flattenedprojects,
     }),
