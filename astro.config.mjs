@@ -34,8 +34,8 @@ async function getPageData(pageID){
   const returnData = [
 
       data.properties?.thumbnail?.url ? data.properties.thumbnail.url : "https://ik.imagekit.io/haydencordeiro/JetChat_E4Z1UHU9l.png?updatedAt=1702754118556",
-      data.properties?.Demo?.url,
-      data.properties?.projectLink?.url
+      // data.properties?.Demo?.url,
+      // data.properties?.projectLink?.url
   ]
   return returnData
   }
