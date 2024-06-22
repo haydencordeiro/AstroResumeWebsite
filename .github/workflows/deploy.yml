@@ -21,6 +21,10 @@ jobs:
       NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
 
     steps:
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo VITE_NOTION_API_TOKEN=${{ secrets.VITE_NOTION_API_TOKEN }} >> .env
       - name: Checkout your repository using git
         uses: actions/checkout@v3
       - name: 'Create env file'
