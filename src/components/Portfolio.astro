@@ -14,15 +14,15 @@ const slugify = str =>
       const portfolioImages = await Astro.glob("/src/assets/img/dynamic/*").then(async files => {
   const entries = await Promise.all(
     files.map(async file => {
-      const fileName = file.default.src.split("dynamic/")[1];
-      const projectName = slugify(fileName.replace(/\.[^/.]+$/, "")); // Remove file extension
+        const fileName = file.default.src.split("/").pop().split(".")[0]; // Get the last part after splitting by '/'
+        const projectName = slugify(fileName.replace(/\.[^/.]+$/, "")); // Remove file extension
       return [projectName, file.default];
     })
   );
 
   return Object.fromEntries(entries);
 });
-// console.log(portfolioImages["zenscape"])
+// console.log(portfolioImages)
 
 let skillToColor = {
 "red" : "rgb(110, 54, 48)",
