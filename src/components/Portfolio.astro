@@ -1,5 +1,10 @@
 ---
 import PortfolioSkillTag from "./PortfolioSkillTag.astro";
+import { Image } from 'astro:assets';
+const portfolioImages = await Astro.glob("/src/assets/img/dynamic/*").then(files => {
+  return files.map(file => file.default);
+});
+
 let skillToColor = {
 "red" : "rgb(110, 54, 48)",
 "purple": "rgb(73, 47, 100)",
@@ -97,20 +102,28 @@ projects.forEach(project => {
 
         <div class="row portfolio-container">
             {
-                projects.map((project) =>
+                projects.map((project,index) =>
             
             <div class=`col-lg-4 col-md-6 portfolio-item ${project.searchTerm}` >
                 <div
                     class="portfolio-wrap"
                     style=" border-top-left-radius: 5px; border-top-right-radius: 5px;"
                 >
-                    <img
+                    {/* <img
                         src={project.imgURL}
                         loading="lazy"
                         class="img-fluid"
                         alt={project.title}
                         style="height: 214px; min-width: 100%; object-fit: cover;"
-                    />
+                    /> */}
+
+                     <Image
+                            src={portfolioImages[index]}
+                            loading="lazy"
+                            class="img-fluid"
+                            alt={project.title}
+                            style="height: 214px; min-width: 100%; object-fit: cover;"
+                        /> 
                     <div class="portfolio-info">
                         <h4>{project.title}</h4>
                         <div class="portfolio-links">

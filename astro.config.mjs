@@ -1,6 +1,8 @@
 import { defineConfig } from 'astro/config';
-
+import fs from 'fs';
+import fetch from 'node-fetch';
 import sitemap from "@astrojs/sitemap";
+import path from 'path';
 
 async function  getPageIds(){
   const response = await fetch("https://api.notion.com/v1/databases/3db8fe9ff1ab4b5ba2b427059834759b/query", {
@@ -17,6 +19,21 @@ async function  getPageIds(){
   return (data.results.map((r) => r.id))
   }
 
+  const slugify = str =>
+    str
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/[\s_-]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+
+  async function downloadImage(url, filename) {
+    const response = await fetch(url);
+    const buffer = await response.buffer();
+    
+    fs.writeFileSync(path.join('./src/assets/img/dynamic/', filename), buffer);
+}
+
 async function getPageData(pageID){
   var myHeaders = new Headers();
   myHeaders.append("Notion-Version", "2022-02-22");
@@ -31,9 +48,15 @@ async function getPageData(pageID){
   
   const response = await fetch("https://api.notion.com/v1/pages/"+pageID , requestOptions)
   const data = await response.json();
-  const returnData = [
+  let imgURL = data.properties.thumbnail.url ? data.properties.thumbnail.url : "https://ik.imagekit.io/haydencordeiro/JetChat_E4Z1UHU9l.png?updatedAt=1702754118556";
+  const imgFilename = `${slugify(data.properties.Name.title[0].text.content)}.png`;
 
-      data.properties?.thumbnail?.url ? data.properties.thumbnail.url : "https://ik.imagekit.io/haydencordeiro/JetChat_E4Z1UHU9l.png?updatedAt=1702754118556",
+    // Download and save the image locally
+  await downloadImage(imgURL, imgFilename);
+
+  const returnData = [
+      `https://hayden.co.in/assets/${imgFilename}`
+      // data.properties?.thumbnail?.url ? data.properties.thumbnail.url : "https://ik.imagekit.io/haydencordeiro/JetChat_E4Z1UHU9l.png?updatedAt=1702754118556",
       // data.properties?.Demo?.url,
       // data.properties?.projectLink?.url
   ]
