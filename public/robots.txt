@@ -2,4 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hayden.co.in/sitemap-index.xml
-sitemap: https://hayden.co.in/sitemapimage.xml

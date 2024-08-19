@@ -32,6 +32,7 @@ async function  getPageIds(){
     const buffer = await response.buffer();
     
     fs.writeFileSync(path.join('./src/assets/img/dynamic/', filename), buffer);
+    fs.writeFileSync(path.join('./public/assets/', filename), buffer);
 }
 
 async function getPageData(pageID){
