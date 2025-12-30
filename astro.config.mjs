@@ -82,7 +82,7 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
-      lastmod: new Date('2024-06-22'),
+      lastmod: new Date('2025-12-30'),
       customPages: flattenedprojects,
     }),
   ]
