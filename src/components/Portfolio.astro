@@ -121,7 +121,21 @@ projects.forEach(project => {
         <div class="row portfolio-container">
             {
                 projects.map((project,index) =>
-            
+            <>
+            <script type="application/ld+json" set:html={JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": project.title,
+                    "description": project.description,
+                    "image": project.imgURL,
+                    "url": project.projectLink || project.youtubeURL,
+                    "author": {
+                        "@type": "Person",
+                        "name": "Hayden Cordeiro" // Or dynamically fetch your name
+                    },
+                    "keywords": project.skills.map(s => s.name).join(", "),
+                    "applicationCategory": project.searchTerm.includes('web') ? "WebApplication" : "SoftwareApplication"
+                })} />
             <div class=`col-lg-4 col-md-6 portfolio-item ${project.searchTerm}` >
                 <div
                     class="portfolio-wrap"
@@ -225,7 +239,9 @@ projects.forEach(project => {
                             </div>
                         </div>
                     </div>
-            </div>)
+            </div>
+        </>
+        )
         }
 
 
