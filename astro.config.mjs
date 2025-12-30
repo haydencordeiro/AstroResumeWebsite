@@ -86,4 +86,9 @@ export default defineConfig({
       customPages: flattenedprojects,
     }),
   ]
+  ,vite: {
+    define: {
+      'import.meta.env.VITE_NOTION_API_TOKEN': JSON.stringify(process.env.VITE_NOTION_API_TOKEN || '')
+    }
+  }
 });
